@@ -18,7 +18,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      # Install prerequisites
+      # Install prerequisites1
       - name: Setup Node npm
         uses: actions/setup-node@v3
 
