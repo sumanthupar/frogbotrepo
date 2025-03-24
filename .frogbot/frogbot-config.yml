@@ -6,13 +6,12 @@
     git:
       # [Mandatory]
       # Name of the git repository to scan
-      repoName: npm-oidc
+      repoName: frogbotrepo
 
       # [Mandatory]
       # List of branches to scan
       branches:
         - main
-        - feature/test
     scan:
       includeAllVulnerabilities: true
       failOnSecurityIssues: false
