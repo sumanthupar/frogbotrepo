@@ -13,7 +13,7 @@ jobs:
      env:
       OIDC_AUDIENCE: 'frogoidc'
       OIDC_PROVIDER: 'destgithub'
-      PLATFORM_REPO: 'blr-npm-stage-virtual'
+      PLATFORM_REPO: 'sumfrogbot-npm-local'
      steps:
        - name: Checkout
          uses: actions/checkout@v3
@@ -32,20 +32,21 @@ jobs:
        - name: Run Audit scan for the git workspace
          run: jf audit
 
-#       - name: Set CLI Config
- #        run: jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
+       - name: Set CLI Config
+         run: jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
            
-  #     - name: Install Dependencies
-   #      run: jf npm install --build-name="ps-jfrog-gitbub-oidc-npm-publish" --build-number=${{ github.run_number }}
+       - name: Install Dependencies
+         run: jf npm install --build-name="sumbotnpm" --build-number=${{ github.run_number }}
          
-    #   - name: Publish
-     #    run: jf npm publish --build-name="ps-jfrog-gitbub-oidc-npm-publish" --build-number=${{ github.run_number }}
+       - name: Publish
+         run: jf npm publish --build-name="sumbotnpm" --build-number=${{ github.run_number }}
          
-      # - name: Publish Build info With JFrog CLI
-       #  run: |
+       - name: Publish Build info With JFrog CLI
+         run: |
           # Collect environment variables for the build
-        #  jf rt bce ps-jfrog-gitbub-oidc-npm-publish ${{ github.run_number }}
+          jf rt bce sumbotnpm ${{ github.run_number }}
           # Collect VCS details from git and add them to the build
-         # jf rt build-add-git ps-jfrog-gitbub-oidc-npm-publish ${{ github.run_number }}
+          jf rt build-add-git sumbotnpm ${{ github.run_number }}
           # Publish build info
-          #jf rt bp ps-jfrog-gitbub-oidc-npm-publish ${{ github.run_number }}
+          jf rt bp sumbotnpm ${{ github.run_number }}
+          jf bs sumbotnpm ${{ github.run_number }}
