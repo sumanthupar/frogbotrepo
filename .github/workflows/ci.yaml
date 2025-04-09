@@ -1,4 +1,4 @@
-name: "ps-jfrog-gitbub-oidc-npm-publish"
+name: "sumbotnpm"
 on: workflow_dispatch
 
 # This is required as per
