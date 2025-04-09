@@ -5,7 +5,8 @@
       "start": "node helloworld"
     },
     "dependencies": {
-      "send": "^0.16.2"
+      "send": "^0.16.2",
+      "lodash": "^4.17.13"
     },
     "devDependencies": {
       "debug": "^4.1.1"
