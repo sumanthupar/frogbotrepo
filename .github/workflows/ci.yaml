@@ -13,7 +13,7 @@ jobs:
      env:
       OIDC_AUDIENCE: 'frogoidc'
       OIDC_PROVIDER: 'destgithub'
-      PLATFORM_REPO: 'sumfrogbot-npm-local'
+      PLATFORM_REPO: 'sumfrogbot-npm-virt'
      steps:
        - name: Checkout
          uses: actions/checkout@v3
