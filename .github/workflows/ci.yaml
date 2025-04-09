@@ -41,12 +41,17 @@ jobs:
        - name: Publish
          run: jf npm publish --build-name="sumbotnpm" --build-number=${{ github.run_number }}
          
-       - name: Publish Build info With JFrog CLI
+       - name: Collect Build info details
          run: |
           # Collect environment variables for the build
           jf rt bce sumbotnpm ${{ github.run_number }}
           # Collect VCS details from git and add them to the build
           jf rt build-add-git sumbotnpm ${{ github.run_number }}
-          # Publish build info
+       
+       - name: Publish build-info to Artifactory
+         run: |
           jf rt bp sumbotnpm ${{ github.run_number }}
+          
+       - name: Perform build scan
+         run: |   
           jf bs sumbotnpm ${{ github.run_number }}
