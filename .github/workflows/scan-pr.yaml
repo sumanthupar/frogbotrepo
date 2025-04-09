@@ -24,8 +24,7 @@ jobs:
       - uses: jfrog/frogbot@v2
         with:
           oidc-provider-name: destgithub
-          oidc-audience: frogoidc
-          
+          oidc-audience: frogoidc  
         env:
           # [Mandatory]
           # JFrog platform URL
