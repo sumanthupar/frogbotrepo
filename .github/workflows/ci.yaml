@@ -44,9 +44,9 @@ jobs:
        - name: Collect Build info details
          run: |
           # Collect environment variables for the build
-          jf rt bce sumbotnpm ${{ github.run_number }}
+          # jf rt bce sumbotnpm ${{ github.run_number }}
           # Collect VCS details from git and add them to the build
-          jf rt build-add-git sumbotnpm ${{ github.run_number }}
+          # jf rt build-add-git sumbotnpm ${{ github.run_number }}
        
        - name: Publish build-info to Artifactory
          run: |
