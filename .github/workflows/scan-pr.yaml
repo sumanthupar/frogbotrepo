@@ -17,19 +17,19 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      # Install prerequisites1
+      # Install prerequisites11
       - name: Setup Node npm
         uses: actions/setup-node@v3
 
       - uses: jfrog/frogbot@v2
         with:
           oidc-provider-name: destgithub
-          oidc-audience: frogoidc
-          
+          oidc-audience: frogoidc  
         env:
           # [Mandatory]
           # JFrog platform URL
           JF_URL: https://${{ vars.JF_URL }}/
+          ##Debug level enabled
           JFROG_CLI_LOG_LEVEL: DEBUG
 
           # [Mandatory if JF_USER and JF_PASSWORD are not provided]
